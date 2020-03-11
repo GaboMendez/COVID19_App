@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
+             x:Class="COVID19.App">
+	<Application.Resources>
+
+		<!-- Application resource dictionary -->
+        <ResourceDictionary>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="PoppinsBlackFont">
+                <On Platform="Android" Value="Poppins-Black.ttf#Poppins Black" />
+                <On Platform="iOS" Value="Poppins-Black" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="PoppinsBoldFont">
+                <On Platform="Android" Value="Poppins-Bold.ttf#Poppins Bold" />
+                <On Platform="iOS" Value="Poppins-Bold" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="PoppinsFont">
+                <On Platform="Android" Value="Poppins-Regular.ttf#Poppins" />
+                <On Platform="iOS" Value="Poppins-Regular" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="PoppinsSemiBoldFont">
+                <On Platform="Android" Value="Poppins-SemiBold.ttf#Poppins SemiBold" />
+                <On Platform="iOS" Value="Poppins-SemiBold" />
+            </OnPlatform>
+
+            <Color x:Key="Primary">#009688</Color>
+            <Color x:Key="PrimaryDark">#00675b</Color>
+            <Color x:Key="PrimaryLight">#52c7b8</Color>
+
+            <Color x:Key="White">#FFFFFF</Color>
+            <Color x:Key="Gray">#616161</Color>
+            <Color x:Key="DarkGray">#363535</Color>
+
+            <Color x:Key="Red">#d50000</Color>
+            <Color x:Key="DarkRed">#c4001d</Color>
+            
+        </ResourceDictionary>
+
+    </Application.Resources>
+</prism:PrismApplication>
