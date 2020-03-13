@@ -23,6 +23,7 @@ namespace COVID19
         {
             InitializeComponent();
 
+            XF.Material.Forms.Material.Init(this);
             await NavigationService.NavigateAsync($"{Constants.Navigation}/{Constants.Main}");
         }
 

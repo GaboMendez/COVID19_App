@@ -3,13 +3,59 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" Title="{Binding Title}"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             mc:Ignorable="d" NavigationPage.HasNavigationBar="False"
+             Title="{Binding Title}"
              x:Class="COVID19.Views.MainPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+
+            <Image Source="ic_background" Margin="-100"
+                   Grid.Row="0" Grid.RowSpan="4"
+                   VerticalOptions="Fill" HorizontalOptions="Fill"/>
+
+            <!--<yummy:PancakeView
+                Grid.Row="1" Elevation="3"
+                HorizontalOptions="Center" 
+                Padding="10" CornerRadius="15"
+                BackgroundColor="White" 
+                BorderThickness="1">
+                <StackLayout>
+                    <Label
+                        FontAttributes="Bold" FontSize="20"
+                        HorizontalTextAlignment="Center"
+                        Text="Cases" TextColor="Black"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand" />
+                    
+                    <Image Source="image10" />
+
+                    <Label
+                        FontAttributes="Bold" FontSize="20"
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding Global.cases}" TextColor="Black"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand" />
+                </StackLayout>
+            </yummy:PancakeView>-->
+
+            <yummy:PancakeView
+                Margin="0,0,0,0" Padding="30,0,30,30"
+                BackgroundColor="White" CornerRadius="50,50,0,0" 
+                Grid.Row="3" VerticalOptions="FillAndExpand">
+                <material:MaterialButton 
+                    Text="In Countries..." ButtonType="Elevated" Elevation="1"
+                    Command="{Binding CountryCommand}" BackgroundColor="{StaticResource Primary}"
+                    HorizontalOptions="Center" VerticalOptions="End"/>
+            </yummy:PancakeView>
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
