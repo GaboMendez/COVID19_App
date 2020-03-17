@@ -21,6 +21,7 @@
                 <RowDefinition Height="2*" />
                 <RowDefinition Height="2*" />
                 <RowDefinition Height="2*" />
+                <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*" />
@@ -30,11 +31,21 @@
             <Frame Style="{StaticResource FrameEntry}" Margin="5,5" Padding="0,-1"
                    Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
                    HorizontalOptions="Center" VerticalOptions="Center" >
-                <SearchBar Placeholder="Search Country..." TextChanged="SearchBar_TextChanged"
+                <SearchBar Placeholder="Search a Country..." TextChanged="SearchBar_TextChanged"
+                           FontSize="18" FontAttributes="Bold"
                            Text="{Binding SearchTerm}" SearchCommand="{Binding SearchCommand}" 
                            VerticalOptions="Center" HorizontalOptions="Center" />
             </Frame>
-            
+
+            <Frame Style="{StaticResource FrameEntry}" Margin="5,5" Padding="0,-1"
+                   Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" 
+                   HorizontalOptions="Center" VerticalOptions="Center" >
+                <Picker ItemsSource="{Binding CountryList}"
+                        SelectedItem="{Binding SelectedCountry}" 
+                        Title="Select a Country" Margin="0,3,0,3"
+                        HorizontalOptions="Center" VerticalOptions="Center"
+                        FontSize="18" FontAttributes="Bold" />
+            </Frame>
 
         </Grid>
     </ContentPage.Content>

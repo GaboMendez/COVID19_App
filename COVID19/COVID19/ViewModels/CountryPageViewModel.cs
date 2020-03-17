@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using Prism.Commands;
 using System.Threading.Tasks;
+using XF.Material.Forms.UI.Dialogs;
 
 namespace COVID19.ViewModels
 {
@@ -15,11 +16,49 @@ namespace COVID19.ViewModels
     {
         // Properties
         ObservableCollection<Country> Countries { get; set; }
-        List<Country> list { get; set; }
         Country Country { get; set; }
+        public string SearchTerm { get; set; }
+
+        private ObservableCollection<string> _countryList; 
+        public ObservableCollection<string> CountryList
+        {
+            get
+            {
+                if (_countryList == null)
+                    _countryList = new ObservableCollection<string>();
+                return _countryList;
+            }
+            set
+            {
+                if (CountryList != value)
+                {
+                    _countryList = value;
+                }
+            }
+        }    
+
+        private string _selectedCountry;
+        public string SelectedCountry
+        {
+            get { return _selectedCountry; }
+            set
+            {
+                _selectedCountry = value;
+                if (_selectedCountry != null)
+                {
+                    var country = Countries.Where(x => x.country.Equals(_selectedCountry)).FirstOrDefault();
+                    if (country != null)
+                    {
+                        Country = country;
+                        Title = Country.country;
+                    }
+                }
+            }
+        }
 
         // Commands
         public DelegateCommand SearchCommand { get; set; }
+
         public CountryPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService) 
             : base(navigationService, pageDialogService)
         {
@@ -28,7 +67,27 @@ namespace COVID19.ViewModels
 
         private async Task Search()
         {
-            await Task.Delay(100);
+            if (!string.IsNullOrEmpty(SearchTerm))
+            {
+                // Uppercate to the first Letter of SearchTerm
+                var country = Countries.Where(x => x.country.Contains(SearchTerm)).FirstOrDefault();
+
+                if (country != null)
+                {
+                    Country = country;
+                    Title = Country.country;
+                    SearchTerm = Country.country;
+                }else
+                    await MaterialDialog.Instance.AlertAsync(message: "Country not Found! \nTry again!",
+                                                        title: null,
+                                                        acknowledgementText: "Got It",
+                                                        configuration: Constants.alertDialogConfiguration);
+            }
+            else
+                await MaterialDialog.Instance.AlertAsync(message: "Fields can not be empty! \nTry again!",
+                                                        title: null,
+                                                        acknowledgementText: "Got It",
+                                                        configuration: Constants.alertDialogConfiguration);
         }
 
         public override void Initialize(INavigationParameters parameters)
@@ -38,14 +97,20 @@ namespace COVID19.ViewModels
             if (parameters.ContainsKey("Countries"))
             {
                 Countries = (ObservableCollection<Country>)parameters["Countries"];
-                //list = (List<Country>)parameters["Countries"];
                 var country = Countries.Where(x => x.country.Equals("Dominican Republic")).FirstOrDefault();
 
                 if (country != null)
                 {
                     Country = country;
                     Title = Country.country;
+
+                    foreach (var item in Countries)
+                    {
+                        if (item.country != null)
+                            CountryList.Add(item.country);
+                    }
                 }
+
             }
         }
     }
