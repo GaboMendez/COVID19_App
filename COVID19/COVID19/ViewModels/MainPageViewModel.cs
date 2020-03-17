@@ -4,6 +4,7 @@ using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
@@ -41,6 +42,7 @@ namespace COVID19.ViewModels
                                                                         configuration: Constants.loadingDialogConfiguration))
                 {
                     ObservableCollection<Country> countries = await ApiService.GetGlobalCountries();
+                    //List<Country> list = countries.Take(50).ToList();
                     await NavigationService.NavigateAsync(new Uri($"/{Constants.Country}", UriKind.Relative), ("Countries", countries));
                 }
 

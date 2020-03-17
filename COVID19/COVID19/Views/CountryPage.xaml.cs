@@ -1,4 +1,5 @@
-﻿using System;
+﻿using COVID19.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,12 @@ namespace COVID19.Views
         public CountryPage()
         {
             InitializeComponent();
+        }
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var _container = BindingContext as CountryPageViewModel;
+
         }
     }
 }

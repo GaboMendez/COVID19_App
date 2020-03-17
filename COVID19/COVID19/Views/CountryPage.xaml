@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
+             mc:Ignorable="d" BackgroundColor="DarkGray"
              x:Class="COVID19.Views.CountryPage">
     <NavigationPage.TitleView>
         <Grid>
@@ -27,9 +27,15 @@
                 <ColumnDefinition Width="5*" />
             </Grid.ColumnDefinitions>
             
-            <Label Text="Welcome to Xamarin.Forms!"
-                   VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand" />
+            <Frame Style="{StaticResource FrameEntry}" Margin="5,5" Padding="0,-1"
+                   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
+                   HorizontalOptions="Center" VerticalOptions="Center" >
+                <SearchBar Placeholder="Search Country..." TextChanged="SearchBar_TextChanged"
+                           Text="{Binding SearchTerm}" SearchCommand="{Binding SearchCommand}" 
+                           VerticalOptions="Center" HorizontalOptions="Center" />
+            </Frame>
+            
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>

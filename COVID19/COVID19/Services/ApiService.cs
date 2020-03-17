@@ -29,5 +29,9 @@ namespace COVID19.Services
             return await _apiService.GetGlobalCountries();
         }
 
+        public async Task<List<Country>> GetGlobalCountriesList()
+        {
+            return await _apiService.GetGlobalCountriesList();
+        }
     }
 }
