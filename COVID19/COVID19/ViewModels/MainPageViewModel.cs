@@ -44,8 +44,13 @@ namespace COVID19.ViewModels
                     try
                     {
                         ObservableCollection<Country> countries = await ApiService.GetGlobalCountries();
-                        await NavigationService.NavigateAsync(new Uri($"/{Constants.Country}", UriKind.Relative), ("Countries", countries));
-
+                        if (countries.Count > 0)
+                            await NavigationService.NavigateAsync(new Uri($"/{Constants.Country}", UriKind.Relative), ("Countries", countries));
+                        else
+                            await MaterialDialog.Instance.AlertAsync(message: "Something went wrong!!! \nTry Again!",
+                                                                     title: null,
+                                                                     acknowledgementText: "Got It",
+                                                                     configuration: Constants.alertDialogConfiguration);
                     }
 
                     catch (Exception ex)
@@ -67,7 +72,14 @@ namespace COVID19.ViewModels
         private async Task GetGlobalStatus()
         {
             if (!IsNotConnected)
-                Global = await ApiService.GetGlobalStatus();
+                try
+                {
+                    Global = await ApiService.GetGlobalStatus();
+                }
+                catch (Exception)
+                {
+                    Global = new Global();
+                }
             else           
                 Global = new Global();            
 
@@ -85,7 +97,19 @@ namespace COVID19.ViewModels
                 using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Loading...",
                                                                         configuration: Constants.loadingDialogConfiguration))
                 {
-                    Global = await ApiService.GetGlobalStatus();
+                    try
+                    {
+                        Global = await ApiService.GetGlobalStatus();
+                    }
+                    catch (Exception)
+                    {
+                        Global = new Global();
+                        await MaterialDialog.Instance.AlertAsync(message: "Something went wrong!!! \nTry Again!",
+                                                                 title: null,
+                                                                 acknowledgementText: "Got It",
+                                                                 configuration: Constants.alertDialogConfiguration);
+                        return;
+                    }
                 }
 
                 await MaterialDialog.Instance.AlertAsync(message: "This information is updated!",

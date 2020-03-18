@@ -27,10 +27,10 @@
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.3*" />
-                <RowDefinition Height="2.5*" />
-                <RowDefinition Height="2.5*" />
-                <RowDefinition Height="0.3*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="1*" />
                 <RowDefinition Height="1.5*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -38,18 +38,18 @@
                 <ColumnDefinition Width="5*" />
             </Grid.ColumnDefinitions>
 
-            <Image Source="ic_background" Margin="-130"
+            <Image Source="ic_background" Margin="-110"
                    Grid.Row="0" Grid.RowSpan="5" 
                    Grid.Column="0" Grid.ColumnSpan="2"
                    VerticalOptions="Fill" HorizontalOptions="Fill"/>
 
-            <views:PancakeView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,0"
+            <views:PancakeView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="110,-20,110,20"
                                Image="ic_cases" Title="CASES" Message="{Binding Global.cases}" />
 
-            <views:PancakeView Grid.Row="2" Grid.Column="0" Margin="5,0"
+            <views:PancakeView Grid.Row="2" Grid.Column="0" Margin="20,10,20,-10"
                                Image="ic_death" Title="DEATHS" Message="{Binding Global.deaths}" />
 
-            <views:PancakeView Grid.Row="2" Grid.Column="1" Margin="5,0"
+            <views:PancakeView Grid.Row="2" Grid.Column="1" Margin="20,10,20,-10"
                                Image="ic_recovered" Title="RECOVERED" Message="{Binding Global.recovered}" />       
 
             <yummy:PancakeView
@@ -59,9 +59,9 @@
                 <Grid>
                     <Label
                         Text="If you want to know the current status in your country" 
-                        FontSize="18" FontFamily="{StaticResource PoppinsBoldFont}"
+                        FontSize="16" FontFamily="{StaticResource PoppinsBoldFont}"
                         Style="{StaticResource LabelStyle}" TextColor="{StaticResource PrimaryDark}" 
-                        HorizontalOptions="Center" VerticalOptions="Start" Margin="5,0" />
+                        HorizontalOptions="Center" VerticalOptions="Start" Margin="5,5,5,-5" />
                     <material:MaterialButton 
                         Text="Click Here" ButtonType="Elevated" Elevation="1"
                         Command="{Binding CountryCommand}" BackgroundColor="{StaticResource Primary}"
