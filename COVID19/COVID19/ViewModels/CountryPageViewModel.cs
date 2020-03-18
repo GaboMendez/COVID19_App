@@ -51,6 +51,7 @@ namespace COVID19.ViewModels
                     {
                         Country = country;
                         Title = Country.country;
+                        SearchTerm = null;
                     }
                 }
             }
@@ -68,9 +69,8 @@ namespace COVID19.ViewModels
         private async Task Search()
         {
             if (!string.IsNullOrEmpty(SearchTerm))
-            {
-                // Uppercate to the first Letter of SearchTerm
-                var country = Countries.Where(x => x.country.Contains(SearchTerm)).FirstOrDefault();
+            {                
+                var country = Countries.Where( x => x.country.ToLower().Contains(SearchTerm.ToLower()) ).FirstOrDefault();
 
                 if (country != null)
                 {
@@ -79,15 +79,17 @@ namespace COVID19.ViewModels
                     SearchTerm = Country.country;
                 }else
                     await MaterialDialog.Instance.AlertAsync(message: "Country not Found! \nTry again!",
-                                                        title: null,
-                                                        acknowledgementText: "Got It",
-                                                        configuration: Constants.alertDialogConfiguration);
+                                                             title: null,
+                                                             acknowledgementText: "Got It",
+                                                             configuration: Constants.alertDialogConfiguration);
+
+                SelectedCountry = null;
             }
             else
                 await MaterialDialog.Instance.AlertAsync(message: "Fields can not be empty! \nTry again!",
-                                                        title: null,
-                                                        acknowledgementText: "Got It",
-                                                        configuration: Constants.alertDialogConfiguration);
+                                                         title: null,
+                                                         acknowledgementText: "Got It",
+                                                         configuration: Constants.alertDialogConfiguration);
         }
 
         public override void Initialize(INavigationParameters parameters)

@@ -59,7 +59,7 @@
                 <Grid>
                     <Label
                         Text="If you want to know the current status in your country" 
-                        FontSize="20" FontFamily="{StaticResource PoppinsBoldFont}"
+                        FontSize="18" FontFamily="{StaticResource PoppinsBoldFont}"
                         Style="{StaticResource LabelStyle}" TextColor="{StaticResource PrimaryDark}" 
                         HorizontalOptions="Center" VerticalOptions="Start" />
                     <material:MaterialButton 

@@ -41,9 +41,20 @@ namespace COVID19.ViewModels
                 using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Loading...",
                                                                         configuration: Constants.loadingDialogConfiguration))
                 {
-                    ObservableCollection<Country> countries = await ApiService.GetGlobalCountries();
-                    //List<Country> list = countries.Take(50).ToList();
-                    await NavigationService.NavigateAsync(new Uri($"/{Constants.Country}", UriKind.Relative), ("Countries", countries));
+                    try
+                    {
+                        ObservableCollection<Country> countries = await ApiService.GetGlobalCountries();
+                        await NavigationService.NavigateAsync(new Uri($"/{Constants.Country}", UriKind.Relative), ("Countries", countries));
+
+                    }
+
+                    catch (Exception ex)
+                    {
+                        await MaterialDialog.Instance.AlertAsync(message: "Something went wrong!!! \nTry Again!",
+                                                                 title: null,
+                                                                 acknowledgementText: "Got It",
+                                                                 configuration: Constants.alertDialogConfiguration);
+                    }
                 }
 
             }else
