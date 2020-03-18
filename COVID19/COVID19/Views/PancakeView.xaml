@@ -22,7 +22,7 @@
                 </Grid.RowDefinitions>
                 
                 <Label
-                    x:Name="title" Grid.Row="0" FontSize="17" 
+                    x:Name="title" Grid.Row="0" FontSize="16" 
                     FontFamily="{StaticResource PoppinsBoldFont}"
                     Style="{StaticResource LabelStyle}" 
                     TextColor="{StaticResource PrimaryDark}" 

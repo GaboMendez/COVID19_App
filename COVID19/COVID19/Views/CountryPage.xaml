@@ -38,24 +38,24 @@
             </Frame>
 
             <!-- Row 1 -->
-            <views:PancakeView Grid.Row="1" Grid.Column="0" Margin="10,0"
+            <views:PancakeView Grid.Row="1" Grid.Column="0" Margin="15,0"
                                Image="ic_todaycases" Title="TODAY CASES" Message="{Binding Country.todayCases}" />
 
-            <views:PancakeView Grid.Row="1" Grid.Column="1" Margin="10,0"
+            <views:PancakeView Grid.Row="1" Grid.Column="1" Margin="15,0"
                                Image="ic_todaydeaths" Title="TODAY DEATHS" Message="{Binding Country.todayDeaths}" />
 
             <!-- Row 2 -->
-            <views:PancakeView Grid.Row="2" Grid.Column="0" Margin="10,0"
+            <views:PancakeView Grid.Row="2" Grid.Column="0" Margin="15,0"
                                Image="ic_countrycases" Title="CASES" Message="{Binding Country.cases}" />
 
-            <views:PancakeView Grid.Row="2" Grid.Column="1" Margin="10,0"
+            <views:PancakeView Grid.Row="2" Grid.Column="1" Margin="15,0"
                                Image="ic_countrydeaths" Title="DEATHS" Message="{Binding Country.deaths}" />
 
             <!-- Row 3 -->
-            <views:PancakeView Grid.Row="3" Grid.Column="0" Margin="10,0"
+            <views:PancakeView Grid.Row="3" Grid.Column="0" Margin="15,0"
                                Image="ic_countrycritical" Title="CRITICAL" Message="{Binding Country.critical}" />
 
-            <views:PancakeView Grid.Row="3" Grid.Column="1" Margin="10,0"
+            <views:PancakeView Grid.Row="3" Grid.Column="1" Margin="15,0"
                                Image="ic_countryrecovered" Title="RECOVERED" Message="{Binding Country.recovered}" />
             
             

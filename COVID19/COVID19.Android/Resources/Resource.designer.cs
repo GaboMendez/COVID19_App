@@ -17865,13 +17865,16 @@ namespace COVID19.Droid
 			public const int ic_recovered = 2131492872;
 			
 			// aapt resource value: 0x7F0C0009
-			public const int ic_today = 2131492873;
+			public const int ic_refresh = 2131492873;
 			
 			// aapt resource value: 0x7F0C000A
-			public const int ic_todaycases = 2131492874;
+			public const int ic_today = 2131492874;
 			
 			// aapt resource value: 0x7F0C000B
-			public const int ic_todaydeaths = 2131492875;
+			public const int ic_todaycases = 2131492875;
+			
+			// aapt resource value: 0x7F0C000C
+			public const int ic_todaydeaths = 2131492876;
 			
 			static Mipmap()
 			{
