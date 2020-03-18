@@ -28,9 +28,9 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.3*" />
-                <RowDefinition Height="3*" />
-                <RowDefinition Height="3*" />
-                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="2.5*" />
+                <RowDefinition Height="2.5*" />
+                <RowDefinition Height="0.3*" />
                 <RowDefinition Height="1.5*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -46,14 +46,14 @@
             <views:PancakeView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,0"
                                Image="ic_cases" Title="CASES" Message="{Binding Global.cases}" />
 
-            <views:PancakeView Grid.Row="2" Grid.Column="0" Margin="0,0,0,0"
+            <views:PancakeView Grid.Row="2" Grid.Column="0" Margin="5,0"
                                Image="ic_death" Title="DEATHS" Message="{Binding Global.deaths}" />
 
-            <views:PancakeView Grid.Row="2" Grid.Column="1" Margin="0,0,0,0"
+            <views:PancakeView Grid.Row="2" Grid.Column="1" Margin="5,0"
                                Image="ic_recovered" Title="RECOVERED" Message="{Binding Global.recovered}" />       
 
             <yummy:PancakeView
-                Margin="0,0,0,-30" Padding="30,0,30,30"
+                Margin="0,15,0,-30" Padding="30,0,30,30"
                 BackgroundColor="White" CornerRadius="50,50,0,0" 
                 Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4">
                 <Grid>

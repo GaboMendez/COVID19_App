@@ -15,8 +15,8 @@ namespace COVID19.ViewModels
     public class CountryPageViewModel : ViewModelBase
     {
         // Properties
-        ObservableCollection<Country> Countries { get; set; }
-        Country Country { get; set; }
+        public ObservableCollection<Country> Countries { get; set; }
+        public Country Country { get; set; }
         public string SearchTerm { get; set; }
 
         private ObservableCollection<string> _countryList; 
@@ -112,7 +112,7 @@ namespace COVID19.ViewModels
                             CountryList.Add(item.country);
                     }
                 }
-
+                
             }
         }
     }
