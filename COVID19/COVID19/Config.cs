@@ -9,6 +9,7 @@ namespace COVID19
     public static class Config
     {
         public static string api_url = "https://corona.lmao.ninja";
+        public static string api_url_country = "https://corona.richardkeep.dev";
     }
 
     public static class Constants

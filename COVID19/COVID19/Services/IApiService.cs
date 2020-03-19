@@ -15,8 +15,5 @@ namespace COVID19.Services
 
         [Get("/countries")]
         Task<ObservableCollection<Country>> GetGlobalCountries();
-
-        [Get("/countries")]
-        Task<List<Country>> GetGlobalCountriesList();
     }
 }

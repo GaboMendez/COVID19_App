@@ -53,12 +53,17 @@ namespace COVID19.ViewModels
                         Title = Country.country;
                         SearchTerm = null;
                     }
+                    _ = MaterialDialog.Instance.AlertAsync( message: $"Current Virus Status in \n{Title}",
+                                                            title: null,
+                                                            acknowledgementText: "Got It",
+                                                            configuration: Constants.alertDialogConfiguration);
                 }
             }
         }
 
         // Commands
         public DelegateCommand SearchCommand { get; set; }
+
 
         public CountryPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService) 
             : base(navigationService, pageDialogService)
@@ -111,6 +116,11 @@ namespace COVID19.ViewModels
                         if (item.country != null)
                             CountryList.Add(item.country);
                     }
+
+                    _ = MaterialDialog.Instance.AlertAsync(message: $"Current Virus Status in \n{Title}",
+                                                           title: null,
+                                                           acknowledgementText: "Got It",
+                                                           configuration: Constants.alertDialogConfiguration);
                 }
                 
             }

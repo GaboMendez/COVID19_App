@@ -13,10 +13,13 @@ namespace COVID19.Services
     public class ApiService : IApiService
     {
         private readonly IApiService _apiService;
+        private readonly IApiService _apiCountryService;
+
 
         public ApiService()
         {   
             _apiService = RestService.For<IApiService>(Config.api_url);
+            _apiCountryService = RestService.For<IApiService>(Config.api_url_country);
         }
 
         public async Task<Global> GetGlobalStatus()
@@ -26,12 +29,8 @@ namespace COVID19.Services
 
         public async Task<ObservableCollection<Country>> GetGlobalCountries()
         {
-            return await _apiService.GetGlobalCountries();
+            return await _apiCountryService.GetGlobalCountries();
         }
 
-        public async Task<List<Country>> GetGlobalCountriesList()
-        {
-            return await _apiService.GetGlobalCountriesList();
-        }
     }
 }
