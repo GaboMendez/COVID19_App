@@ -10,7 +10,7 @@
             <Label  Style="{StaticResource LabelStyle}" TextColor="White"
                     FontFamily="{StaticResource PoppinsBoldFont}"
                     HorizontalOptions="Start" VerticalOptions="Center"
-                    Text="{Binding Title}" FontSize="22" Margin="0,5,0,0"/>
+                    Text="{Binding Title}" FontSize="18" Margin="0,5,0,0"/>
         </Grid>
     </NavigationPage.TitleView>
     
@@ -21,7 +21,7 @@
                 <RowDefinition Height="2*" />
                 <RowDefinition Height="2*" />
                 <RowDefinition Height="2*" />
-                <RowDefinition Height="0.7*" />
+                <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
@@ -32,29 +32,29 @@
 
             <!-- Row 1 -->
             <views:PancakeView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
-                               TitleSize="14" MessageSize="16" Margin="15,0"
+                               TitleSize="14" MessageSize="16" CornerRadius="20" Margin="15,0" 
                                Image="ic_todaycases" Title="TODAY CASES" Message="{Binding Country.todayCases}" />
 
             <views:PancakeView Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" 
-                               TitleSize="14" MessageSize="16" Margin="15,0"
+                               TitleSize="14" MessageSize="16" CornerRadius="20" Margin="15,0"
                                Image="ic_todaydeaths" Title="TODAY DEATHS" Message="{Binding Country.todayDeaths}" />
 
             <!-- Row 2 -->
             <views:PancakeView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" 
-                               TitleSize="14" MessageSize="16" Margin="15,0"
+                               TitleSize="14" MessageSize="16" CornerRadius="20" Margin="15,0"
                                Image="ic_countrycases" Title="CASES" Message="{Binding Country.cases}" />
 
             <views:PancakeView Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" 
-                               TitleSize="14" MessageSize="16" Margin="15,0"
+                               TitleSize="14" MessageSize="16" CornerRadius="20" Margin="15,0"
                                Image="ic_countrydeaths" Title="DEATHS" Message="{Binding Country.deaths}" />
 
             <!-- Row 3 -->
             <views:PancakeView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" 
-                               TitleSize="14" MessageSize="16" Margin="15,0"
+                               TitleSize="14" MessageSize="16" CornerRadius="20" Margin="15,0"
                                Image="ic_countrycritical" Title="CRITICAL" Message="{Binding Country.critical}" />
 
             <views:PancakeView Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" 
-                               TitleSize="14" MessageSize="16" Margin="15,0"
+                               TitleSize="14" MessageSize="16" CornerRadius="20" Margin="15,0"
                                Image="ic_countryrecovered" Title="RECOVERED" Message="{Binding Country.recovered}" />
 
             <Frame Style="{StaticResource FrameEntry}" Margin="5,10" Padding="0,-1"

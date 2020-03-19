@@ -9,7 +9,7 @@
   <ContentView.Content>
       
         <yummy:PancakeView x:Name="pancake" 
-                Elevation="3" BorderThickness="2"
+                Elevation="5" BorderThickness="2"
                 Padding="10" CornerRadius="35"  
                 HorizontalOptions="Center" 
                 BackgroundColor="White"

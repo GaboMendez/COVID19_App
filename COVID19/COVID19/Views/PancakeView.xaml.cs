@@ -36,6 +36,10 @@ namespace COVID19.Views
         {
             set => message.FontSize = value;
         }
+        public int CornerRadius 
+        {
+            set => pancake.CornerRadius = value;
+        }
 
 
         public PancakeView()
@@ -49,9 +53,7 @@ namespace COVID19.Views
             {
                 Selected = false;
 
-                title.FontSize -= 1;
                 title.TextColor = Color.FromHex("00675b");
-                message.FontSize -= 1;
                 message.TextColor = Color.FromHex("00675b");
                 pancake.BackgroundColor = Color.FromHex("FFFFFF");
                 pancake.Margin = new Thickness(0, 0, 0, 0);
@@ -60,9 +62,7 @@ namespace COVID19.Views
             {
                 Selected = true;
 
-                title.FontSize += 1;
                 title.TextColor = Color.White;
-                message.FontSize += 1;
                 message.TextColor = Color.White;
                 pancake.BackgroundColor = Color.FromHex("009688");
                 pancake.Margin = new Thickness(0, -5, 0, 5);
