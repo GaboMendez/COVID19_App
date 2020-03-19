@@ -43,13 +43,16 @@
                    Grid.Column="0" Grid.ColumnSpan="2"
                    VerticalOptions="Fill" HorizontalOptions="Fill"/>
 
-            <views:PancakeView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="110,-20,110,20"
+            <views:PancakeView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
+                               TitleSize="18" MessageSize="16" Margin="110,-20,110,20"
                                Image="ic_cases" Title="CASES" Message="{Binding Global.cases}" />
 
-            <views:PancakeView Grid.Row="2" Grid.Column="0" Margin="20,10,20,-10"
+            <views:PancakeView Grid.Row="2" Grid.Column="0" 
+                               TitleSize="18" MessageSize="16" Margin="20,10,20,-10"
                                Image="ic_death" Title="DEATHS" Message="{Binding Global.deaths}" />
 
-            <views:PancakeView Grid.Row="2" Grid.Column="1" Margin="20,10,20,-10"
+            <views:PancakeView Grid.Row="2" Grid.Column="1" 
+                               TitleSize="18" MessageSize="16" Margin="20,10,20,-10"
                                Image="ic_recovered" Title="RECOVERED" Message="{Binding Global.recovered}" />       
 
             <yummy:PancakeView

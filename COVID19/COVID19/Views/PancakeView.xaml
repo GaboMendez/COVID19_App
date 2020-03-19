@@ -8,17 +8,20 @@
              x:Class="COVID19.Views.PancakeView">
   <ContentView.Content>
       
-        <yummy:PancakeView
+        <yummy:PancakeView x:Name="pancake" 
                 Elevation="3" BorderThickness="2"
                 Padding="10" CornerRadius="35"  
                 HorizontalOptions="Center" 
                 BackgroundColor="White"
                 WidthRequest="150">
+            <yummy:PancakeView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Pancake_OnTapped"></TapGestureRecognizer>
+            </yummy:PancakeView.GestureRecognizers>
             <Grid Margin="-10,-5">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="1.5*" />
-                    <RowDefinition Height="7*" />
-                    <RowDefinition Height="1.5*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="4*" />
+                    <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
                 
                 <Label
@@ -36,7 +39,7 @@
                 </Frame>
 
                 <Label
-                    Grid.Row="2" Style="{StaticResource LabelStyle}" 
+                    Grid.Row="2" x:Name="message" Style="{StaticResource LabelStyle}" 
                     Text="{Binding Source={x:Reference ThisContentView}, Path=Message}"
                     TextColor="{StaticResource PrimaryDark}" FontSize="17" 
                     FontFamily="{StaticResource PoppinsSemiBoldFont}"

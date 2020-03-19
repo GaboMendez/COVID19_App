@@ -10,8 +10,6 @@ namespace COVID19.Models
         public int? deaths { get; set; }
         public int? recovered { get; set; }
 
-        public bool CatchError { get; set; }
-
         public Global()
         {
             cases = 0;

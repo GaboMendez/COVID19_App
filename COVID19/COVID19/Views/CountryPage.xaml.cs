@@ -24,9 +24,7 @@ namespace COVID19.Views
         {
             var _container = BindingContext as CountryPageViewModel;
 
-            countryListView.IsVisible = true;
-            countryListView.BeginRefresh();
-            
+            countryListView.IsVisible = true;            
             try
             {
                 List<Country> CountryList = _container.Countries.Where(i => i.country.ToLower().Contains(e.NewTextValue.ToLower())).ToList();
@@ -44,9 +42,7 @@ namespace COVID19.Views
             catch (Exception)
             {
                 countryListView.IsVisible = false;
-            }
-            
-            countryListView.EndRefresh();
+            }            
         }
 
         private void ListView_OnItemTapped(Object sender, ItemTappedEventArgs e)

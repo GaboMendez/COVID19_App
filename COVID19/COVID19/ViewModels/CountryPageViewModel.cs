@@ -53,7 +53,7 @@ namespace COVID19.ViewModels
                         Title = Country.country;
                         SearchTerm = null;
                     }
-                    _ = MaterialDialog.Instance.AlertAsync( message: $"Current Virus Status in \n{Title}",
+                    _ = MaterialDialog.Instance.AlertAsync( message: $"Current virus status in \n{Title}",
                                                             title: null,
                                                             acknowledgementText: "Got It",
                                                             configuration: Constants.alertDialogConfiguration);
@@ -117,7 +117,7 @@ namespace COVID19.ViewModels
                             CountryList.Add(item.country);
                     }
 
-                    _ = MaterialDialog.Instance.AlertAsync(message: $"Current Virus Status in \n{Title}",
+                    _ = MaterialDialog.Instance.AlertAsync(message: $"Current virus status in \n{Title}",
                                                            title: null,
                                                            acknowledgementText: "Got It",
                                                            configuration: Constants.alertDialogConfiguration);
