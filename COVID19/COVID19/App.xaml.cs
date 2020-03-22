@@ -24,7 +24,7 @@ namespace COVID19
             InitializeComponent();
 
             XF.Material.Forms.Material.Init(this);
-            await NavigationService.NavigateAsync($"{Constants.Navigation}/{Constants.Main}");
+            await NavigationService.NavigateAsync($"{Constants.Navigation}/{Constants.Language}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -33,6 +33,8 @@ namespace COVID19
 
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<CountryPage, CountryPageViewModel>();
+            containerRegistry.RegisterForNavigation<LanguagePage, LanguagePageViewModel>();
+
         }
     }
 }

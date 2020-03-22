@@ -7,6 +7,7 @@
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              xmlns:views="clr-namespace:COVID19.Views"
              mc:Ignorable="d" Title="{Binding Title}"
+             NavigationPage.HasBackButton="False"
              x:Class="COVID19.Views.MainPage">
     
     <NavigationPage.TitleView>
@@ -38,7 +39,7 @@
                 <ColumnDefinition Width="5*" />
             </Grid.ColumnDefinitions>
 
-            <Image Source="ic_background" Margin="-110"
+            <Image Source="ic_background" Margin="-120"
                    Grid.Row="0" Grid.RowSpan="5" 
                    Grid.Column="0" Grid.ColumnSpan="2"
                    VerticalOptions="Fill" HorizontalOptions="Fill"/>
@@ -64,7 +65,7 @@
                         Text="If you want to know the current status in your country" 
                         FontSize="15" FontFamily="{StaticResource PoppinsBoldFont}"
                         Style="{StaticResource LabelStyle}" TextColor="{StaticResource PrimaryDark}" 
-                        HorizontalOptions="Center" VerticalOptions="Start" Margin="5,5,5,-5" />
+                        HorizontalOptions="Center" VerticalOptions="Start" Margin="10,5,10,-5" />
                     <material:MaterialButton 
                         Text="Click Here" ButtonType="Elevated" Elevation="1"
                         Command="{Binding CountryCommand}" BackgroundColor="{StaticResource Primary}"

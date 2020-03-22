@@ -8,8 +8,8 @@ namespace COVID19
 {
     public static class Config
     {
-        public static string api_url = "https://corona.lmao.ninja";
-        public static string api_url_country = "https://corona.richardkeep.dev";
+        public static string api_url = "https://corona.lmao.ninja";                 // Thanks -> https://github.com/NovelCOVID 
+        public static string api_url_country = "https://corona.richardkeep.dev";    // Thanks -> https://github.com/richardkeep
     }
 
     public static class Constants
@@ -18,10 +18,11 @@ namespace COVID19
         public static string Navigation = "NavigationPage";
 
         //Pages
+        public static string Language = "LanguagePage";
         public static string Main = "MainPage";
-        public static string Country = "CountryPage";   
+        public static string Country = "CountryPage";
         
-        //Dialog
+        //Dialogs
         public static MaterialLoadingDialogConfiguration loadingDialogConfiguration = new MaterialLoadingDialogConfiguration()
         {
             BackgroundColor = Color.FromHex("#00675b"),

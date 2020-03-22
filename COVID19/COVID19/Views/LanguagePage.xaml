@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             mc:Ignorable="d" NavigationPage.HasNavigationBar="False"
+             x:Class="COVID19.Views.LanguagePage">
+    <ContentPage.Content>
+        <Grid>
+
+            <Image Source="ic_background_language" Margin="-55"
+                   VerticalOptions="Fill" HorizontalOptions="Fill"/>
+            
+            <StackLayout VerticalOptions="Center"
+                         Margin="0,150,0,-150">
+                
+                <Label  Text="COVID19" FontSize="36" FontFamily="{StaticResource PoppinsBoldFont}"
+                        Style="{StaticResource LabelStyle}" TextColor="#00600f" Margin="10,50,10,-10"
+                        HorizontalOptions="Center" VerticalOptions="End"  />
+
+                <Label  Text="{Binding Text}" FontSize="26" FontFamily="{StaticResource PoppinsSemiBoldFont}"
+                        Style="{StaticResource LabelStyle}" TextColor="#1e7234" FontAttributes="Bold"
+                        HorizontalOptions="Center" VerticalOptions="Start" Margin="0,0,0,10" />
+
+                <Label  Text="{Binding TitleLanguage}" FontSize="24" FontFamily="{StaticResource PoppinsBoldFont}"
+                        Style="{StaticResource LabelStyle}" TextColor="{StaticResource DarkGray}" 
+                        HorizontalOptions="Center" VerticalOptions="Start" Margin="0,0,0,0" />
+
+                <StackLayout  Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,10,0,0">
+                    
+                    <Label Text="{Binding English}" Margin="5,0,0,0" FontSize="22" 
+                           FontFamily="{StaticResource PoppinsSemiBoldFont}" FontAttributes="Bold"
+                           Style="{StaticResource LabelStyle}" TextColor="{x:DynamicResource Gray}" />
+                    <Switch IsToggled="{Binding LanguageBool}" OnColor="{x:DynamicResource PrimaryDark}" Margin="10,5,0,0"/>
+                    <Label Text="{Binding Spanish}" Margin="5,0,0,0" FontSize="22" 
+                           FontFamily="{StaticResource PoppinsSemiBoldFont}" FontAttributes="Bold"
+                           Style="{StaticResource LabelStyle}" TextColor="{x:DynamicResource Gray}"  />
+
+                </StackLayout>
+                
+                <material:MaterialButton 
+                        Text="{Binding TextButton}" ButtonType="Elevated" Elevation="1"
+                        Command="{Binding ContinueCommand}" BackgroundColor="{StaticResource Primary}"
+                        HorizontalOptions="Center" VerticalOptions="End" Margin="0,10,0,0" FontSize="20"/>
+            </StackLayout>
+          
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
