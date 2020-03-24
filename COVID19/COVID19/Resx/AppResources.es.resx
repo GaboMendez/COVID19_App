@@ -117,6 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CountryCritical" xml:space="preserve">
+    <value>CRÍTICOS</value>
+  </data>
+  <data name="CountryPicker" xml:space="preserve">
+    <value>Seleccione un País</value>
+  </data>
+  <data name="CountrySearch" xml:space="preserve">
+    <value>Buscar un País...</value>
+  </data>
+  <data name="CountryTodayC" xml:space="preserve">
+    <value>CASOS HOY</value>
+  </data>
+  <data name="CountryTodayD" xml:space="preserve">
+    <value>MUERTOS HOY</value>
+  </data>
   <data name="MainCases" xml:space="preserve">
     <value>CASOS</value>
   </data>
@@ -133,6 +148,36 @@
     <value>Estado Global</value>
   </data>
   <data name="MainTitleContinue" xml:space="preserve">
-    <value>Si desea conocer el estado actual de su país</value>
+    <value>Si deseas conocer el estado actual de su país</value>
+  </data>
+  <data name="MsgClose" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="MsgCountryError" xml:space="preserve">
+    <value>País no encontrado!</value>
+  </data>
+  <data name="MsgCountryStatus" xml:space="preserve">
+    <value>Estado actual del virus en</value>
+  </data>
+  <data name="MsgError" xml:space="preserve">
+    <value>Por favor inténtalo de nuevo!</value>
+  </data>
+  <data name="MsgErrorTitle" xml:space="preserve">
+    <value>Algo salió mal...</value>
+  </data>
+  <data name="MsgFieldEmpty" xml:space="preserve">
+    <value>El campo no puede estar vacío!</value>
+  </data>
+  <data name="MsgInternet" xml:space="preserve">
+    <value>¡Comprueba tu conexión a Internet! y vuelve a intentarlo...</value>
+  </data>
+  <data name="MsgLoad" xml:space="preserve">
+    <value>Cargando...</value>
+  </data>
+  <data name="MsgOk" xml:space="preserve">
+    <value>Entendido</value>
+  </data>
+  <data name="MsgUpdate" xml:space="preserve">
+    <value>Esta información está actualizada!</value>
   </data>
 </root>

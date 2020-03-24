@@ -18,8 +18,19 @@ namespace COVID19.Services
 
         public ApiService()
         {   
-            _apiService = RestService.For<IApiService>(Config.api_url);
-            _apiCountryService = RestService.For<IApiService>(Config.api_url_country);
+            _apiService = RestService.For<IApiService>
+                (new HttpClient
+                    {
+                        BaseAddress = new Uri(Config.api_url),
+                        Timeout = TimeSpan.FromSeconds(3)
+                    });
+
+            _apiCountryService = RestService.For<IApiService>
+                (new HttpClient
+                    {
+                        BaseAddress = new Uri(Config.api_url_country),
+                        Timeout = TimeSpan.FromSeconds(3)
+                    });
         }
 
         public async Task<Global> GetGlobalStatus()

@@ -61,6 +61,51 @@ namespace COVID19.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CRITICAL.
+        /// </summary>
+        internal static string CountryCritical {
+            get {
+                return ResourceManager.GetString("CountryCritical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a Country.
+        /// </summary>
+        internal static string CountryPicker {
+            get {
+                return ResourceManager.GetString("CountryPicker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search a Country....
+        /// </summary>
+        internal static string CountrySearch {
+            get {
+                return ResourceManager.GetString("CountrySearch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODAY CASES.
+        /// </summary>
+        internal static string CountryTodayC {
+            get {
+                return ResourceManager.GetString("CountryTodayC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODAY DEATHS.
+        /// </summary>
+        internal static string CountryTodayD {
+            get {
+                return ResourceManager.GetString("CountryTodayD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CASES.
         /// </summary>
         internal static string MainCases {
@@ -111,6 +156,96 @@ namespace COVID19.Resx {
         internal static string MainTitleContinue {
             get {
                 return ResourceManager.GetString("MainTitleContinue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        internal static string MsgClose {
+            get {
+                return ResourceManager.GetString("MsgClose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country not Found!.
+        /// </summary>
+        internal static string MsgCountryError {
+            get {
+                return ResourceManager.GetString("MsgCountryError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current virus status in.
+        /// </summary>
+        internal static string MsgCountryStatus {
+            get {
+                return ResourceManager.GetString("MsgCountryStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please try again!.
+        /// </summary>
+        internal static string MsgError {
+            get {
+                return ResourceManager.GetString("MsgError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong....
+        /// </summary>
+        internal static string MsgErrorTitle {
+            get {
+                return ResourceManager.GetString("MsgErrorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fields can not be empty!.
+        /// </summary>
+        internal static string MsgFieldEmpty {
+            get {
+                return ResourceManager.GetString("MsgFieldEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check your internet Connection and Try Again!.
+        /// </summary>
+        internal static string MsgInternet {
+            get {
+                return ResourceManager.GetString("MsgInternet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading....
+        /// </summary>
+        internal static string MsgLoad {
+            get {
+                return ResourceManager.GetString("MsgLoad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Got It.
+        /// </summary>
+        internal static string MsgOk {
+            get {
+                return ResourceManager.GetString("MsgOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This information is updated!.
+        /// </summary>
+        internal static string MsgUpdate {
+            get {
+                return ResourceManager.GetString("MsgUpdate", resourceCulture);
             }
         }
     }

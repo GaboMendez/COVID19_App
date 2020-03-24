@@ -9,6 +9,7 @@ using System.Text;
 using Prism.Commands;
 using System.Threading.Tasks;
 using XF.Material.Forms.UI.Dialogs;
+using COVID19.Resx;
 
 namespace COVID19.ViewModels
 {
@@ -53,9 +54,9 @@ namespace COVID19.ViewModels
                         Title = Country.country;
                         SearchTerm = null;
                     }
-                    _ = MaterialDialog.Instance.AlertAsync( message: $"Current virus status in \n{Title}",
+                    _ = MaterialDialog.Instance.AlertAsync( message: $"{AppResources.MsgCountryStatus}\n{Title}",
                                                             title: null,
-                                                            acknowledgementText: "Got It",
+                                                            acknowledgementText: AppResources.MsgOk,
                                                             configuration: Constants.alertDialogConfiguration);
                 }
             }
@@ -83,17 +84,17 @@ namespace COVID19.ViewModels
                     Title = Country.country;
                     SearchTerm = Country.country;
                 }else
-                    await MaterialDialog.Instance.AlertAsync(message: "Country not Found! \nTry again!",
-                                                             title: null,
-                                                             acknowledgementText: "Got It",
+                    await MaterialDialog.Instance.AlertAsync(message: AppResources.MsgCountryError,
+                                                             title: AppResources.MsgError,
+                                                             acknowledgementText: AppResources.MsgOk,
                                                              configuration: Constants.alertDialogConfiguration);
 
                 SelectedCountry = null;
             }
             else
-                await MaterialDialog.Instance.AlertAsync(message: "Fields can not be empty! \nTry again!",
-                                                         title: null,
-                                                         acknowledgementText: "Got It",
+                await MaterialDialog.Instance.AlertAsync(message: AppResources.MsgFieldEmpty,
+                                                         title: AppResources.MsgError,
+                                                         acknowledgementText: AppResources.MsgOk,
                                                          configuration: Constants.alertDialogConfiguration);
         }
 
@@ -117,10 +118,10 @@ namespace COVID19.ViewModels
                             CountryList.Add(item.country);
                     }
 
-                    _ = MaterialDialog.Instance.AlertAsync(message: $"Current virus status in \n{Title}",
-                                                           title: null,
-                                                           acknowledgementText: "Got It",
-                                                           configuration: Constants.alertDialogConfiguration);
+                    _ = MaterialDialog.Instance.AlertAsync( message: $"{AppResources.MsgCountryStatus}\n{Title}",
+                                                            title: null,
+                                                            acknowledgementText: AppResources.MsgOk,
+                                                            configuration: Constants.alertDialogConfiguration);
                 }
                 
             }

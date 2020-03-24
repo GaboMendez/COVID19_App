@@ -40,12 +40,12 @@
                 <ColumnDefinition Width="5*" />
             </Grid.ColumnDefinitions>
 
-            <Image Source="ic_background" Margin="-120"
+            <Image Source="ic_background_global" Margin="-30"
                    Grid.Row="0" Grid.RowSpan="5" 
                    Grid.Column="0" Grid.ColumnSpan="2"
                    VerticalOptions="Fill" HorizontalOptions="Fill"/>
 
-            <views:PancakeView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
+            <views:PancakeView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                                TitleSize="15" MessageSize="16" CornerRadius="30" Margin="110,-20,110,20"
                                Image="ic_cases" Title="{x:Static resources:AppResources.MainCases}" Message="{Binding Global.cases}" />
 

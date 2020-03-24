@@ -35,6 +35,7 @@ namespace COVID19
             containerRegistry.RegisterForNavigation<CountryPage, CountryPageViewModel>();
             containerRegistry.RegisterForNavigation<LanguagePage, LanguagePageViewModel>();
 
+            containerRegistry.RegisterDialog<DetailOptionDialogView, DetailOptionViewModel>();
         }
     }
 }

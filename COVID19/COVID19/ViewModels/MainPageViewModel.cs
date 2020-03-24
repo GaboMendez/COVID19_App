@@ -1,5 +1,6 @@
 ﻿using COVID19.Models;
 using COVID19.Services;
+using COVID19.Resx;
 using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
@@ -10,6 +11,9 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 using XF.Material.Forms.UI.Dialogs;
+using System.Threading;
+using System.Globalization;
+using Prism.Services.Dialogs;
 
 namespace COVID19.ViewModels
 {
@@ -22,79 +26,66 @@ namespace COVID19.ViewModels
         // Commands
         public DelegateCommand CountryCommand { get; set; }
         public DelegateCommand RefreshCommand { get; set; }
+        public DelegateCommand DetailCommand { get; set; }
 
-        public MainPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
+        public MainPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, IDialogService dialogService)
             : base(navigationService, pageDialogService)
         {
             Title = "Global Status";
             ApiService = new ApiService();
 
-            Task.Run( () => this.GetGlobalStatus() ).Wait();
             CountryCommand = new DelegateCommand(async () => { await Country(); });
             RefreshCommand = new DelegateCommand(async () => { await Refresh(); });
+            DetailCommand = new DelegateCommand( () =>
+            {
+                dialogService.ShowDialog("DetailOptionDialogView", CloseDialogCallback);
+            });
         }
 
         private async Task Country()
         {
             if (!IsNotConnected)
             {
-                using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Loading...",
+                using (await MaterialDialog.Instance.LoadingDialogAsync(message: AppResources.MsgLoad,
                                                                         configuration: Constants.loadingDialogConfiguration))
                 {
                     try
                     {
                         ObservableCollection<Country> countries = await ApiService.GetGlobalCountries();
+                        foreach (var item in countries)
+                        { }
+
                         if (countries.Count > 0)
                             await NavigationService.NavigateAsync(new Uri($"/{Constants.Country}", UriKind.Relative), ("Countries", countries));
                         else
-                            await MaterialDialog.Instance.AlertAsync(message: "Something went wrong!!! \nTry Again!",
+                            await MaterialDialog.Instance.AlertAsync(message: AppResources.MsgErrorTitle,
                                                                      title: null,
-                                                                     acknowledgementText: "Got It",
+                                                                     acknowledgementText: AppResources.MsgOk,
                                                                      configuration: Constants.alertDialogConfiguration);
                     }
 
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-                        await MaterialDialog.Instance.AlertAsync(message: "Something went wrong!!! \nTry Again!",
-                                                                 title: null,
-                                                                 acknowledgementText: "Got It",
+                        await MaterialDialog.Instance.AlertAsync(message: AppResources.MsgError,
+                                                                 title: AppResources.MsgErrorTitle,
+                                                                 acknowledgementText: AppResources.MsgOk,
                                                                  configuration: Constants.alertDialogConfiguration);
                     }
                 }
 
-            }else
-                await MaterialDialog.Instance.AlertAsync(message: "Check your internet Connection and Try Again!",
+            }
+            else
+                await MaterialDialog.Instance.AlertAsync(message: AppResources.MsgInternet,
                                                          title: null,
-                                                         acknowledgementText: "Got It",
+                                                         acknowledgementText: AppResources.MsgOk,
                                                          configuration: Constants.alertDialogConfiguration);
-        }
-
-        private async Task GetGlobalStatus()
-        {
-            if (!IsNotConnected)
-                try
-                {
-                    Global = await ApiService.GetGlobalStatus();
-                }
-                catch (Exception)
-                {
-                    Global = new Global();
-                }
-            else           
-                Global = new Global();            
-
-            if (Global == null)
-                Global = new Global();                            
-
-            //message: "So this information is not updated!",
-            //title: "Not Internet Connection!"
         }
 
         private async Task Refresh()
         {
             if (!IsNotConnected)
             {
-                using (await MaterialDialog.Instance.LoadingDialogAsync(message: "Loading...",
+                using (await MaterialDialog.Instance.LoadingDialogAsync(message: AppResources.MsgLoad,
                                                                         configuration: Constants.loadingDialogConfiguration))
                 {
                     try
@@ -104,25 +95,37 @@ namespace COVID19.ViewModels
                     catch (Exception)
                     {
                         Global = new Global();
-                        await MaterialDialog.Instance.AlertAsync(message: "Something went wrong!!! \nTry Again!",
-                                                                 title: null,
-                                                                 acknowledgementText: "Got It",
-                                                                 configuration: Constants.alertDialogConfiguration);
+                        await MaterialDialog.Instance.AlertAsync( message: AppResources.MsgError,
+                                                                  title: AppResources.MsgErrorTitle,
+                                                                  acknowledgementText: AppResources.MsgOk,
+                                                                  configuration: Constants.alertDialogConfiguration);
                         return;
                     }
                 }
 
-                await MaterialDialog.Instance.AlertAsync(message: "This information is updated!",
+                await MaterialDialog.Instance.AlertAsync(message: AppResources.MsgUpdate,
                                                          title: null,
-                                                         acknowledgementText: "Got It",
+                                                         acknowledgementText: AppResources.MsgOk,
                                                          configuration: Constants.alertDialogConfiguration);
 
             }
             else
-                await MaterialDialog.Instance.AlertAsync(message: "Check your internet Connection and Try Again!",
+                await MaterialDialog.Instance.AlertAsync(message: AppResources.MsgInternet,
                                                          title: null,
-                                                         acknowledgementText: "Got It",
+                                                         acknowledgementText: AppResources.MsgOk,
                                                          configuration: Constants.alertDialogConfiguration);
+        }
+
+        private void CloseDialogCallback(IDialogResult dialogResult) { }
+
+        public override void Initialize(INavigationParameters parameters)
+        {
+            base.Initialize(parameters);
+
+            if (parameters.ContainsKey("Global"))
+            {
+                Global = (Global)parameters["Global"];
+            }
         }
 
     }
